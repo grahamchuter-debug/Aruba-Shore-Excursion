@@ -1,0 +1,12 @@
+{
+  "name": "aruba-shore-excursion",
+  "private": true,
+  "scripts": {
+    "build": "python3 scripts/build-aruba-site.py",
+    "deploy": "wrangler deploy",
+    "preview": "python3 -m http.server 8902"
+  },
+  "devDependencies": {
+    "wrangler": "^4.94.0"
+  }
+}
