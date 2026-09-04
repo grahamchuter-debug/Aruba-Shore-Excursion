@@ -15,17 +15,17 @@ HERO_GRADIENT = (
 ACCENT = "text-teal-400"
 
 HOME_HERO = "images/hero-aruba.png"
-HOME_HERO_ALT = "Eagle Beach in Aruba with white sand and turquoise Caribbean water"
+HOME_HERO_ALT = "Sailboat at sunset off Eagle Beach Aruba"
 BEST_IMG = "images/best-aruba-excursions.png"
 BEST_ALT = "Best Aruba shore excursions including beaches island tours and snorkelling"
 PORT_IMG = "images/aruba-cruise-port.png"
 PORT_ALT = "Cruise ship visiting Oranjestad Aruba cruise port"
 ONE_DAY_IMG = "images/one-day-aruba.png"
-ONE_DAY_ALT = "One day in Aruba for cruise passengers visiting Oranjestad"
+ONE_DAY_ALT = "Oranjestad palm-lined street for cruise passengers spending one day in Aruba"
 EAGLE_IMG = "images/eagle-beach-hero.png"
 EAGLE_ALT = "Eagle Beach Aruba one of the Caribbean's most famous beaches"
 SNORKEL_IMG = "images/aruba-snorkelling.png"
-SNORKEL_ALT = "Snorkelling tour in Aruba with clear Caribbean water and coral reefs"
+SNORKEL_ALT = "Snorkelling tour with clear water and tropical fish"
 ANTILLA_IMG = "images/antilla-shipwreck.png"
 ANTILLA_ALT = (
     "Aerial view of the Antilla shipwreck in clear turquoise water off Aruba "
@@ -34,24 +34,21 @@ ANTILLA_ALT = (
 ISLAND_IMG = "images/aruba-island-tours.png"
 ISLAND_ALT = "Island sightseeing tour visiting Aruba landmarks and viewpoints"
 UTV_IMG = "images/aruba-utv-adventures.png"
-UTV_ALT = "UTV adventure excursion exploring the rugged coastline of Aruba"
+UTV_ALT = "Arid desert landscape representing Aruba UTV and dry-side adventures"
 ARIKOK_IMG = "images/arikok-national-park.png"
 ARIKOK_ALT = "Natural Pool in Arikok National Park Aruba"
 LIGHTHOUSE_IMG = "images/california-lighthouse.png"
 LIGHTHOUSE_ALT = "California Lighthouse in Aruba on an island sightseeing tour"
 PRIVATE_IMG = "images/aruba-private-tours.png"
-PRIVATE_ALT = "Private Aruba shore excursion with flexible island sightseeing"
+PRIVATE_ALT = "Colourful Oranjestad streetscape for private Aruba shore excursions"
 FAMILY_IMG = "images/aruba-family.png"
-FAMILY_ALT = "Family friendly Aruba shore excursion from Oranjestad cruise port"
+FAMILY_ALT = "Eagle Beach Aruba for family friendly shore excursions"
 BEACHES_IMG = "images/aruba-beaches.png"
-BEACHES_ALT = "Best beaches in Aruba for cruise passengers"
+BEACHES_ALT = "Palm Beach loungers and turquoise water in Aruba"
 FAQ_IMG = "images/aruba-faq.png"
 FAQ_ALT = "Cruise passengers exploring Oranjestad Aruba"
 INTRO_IMG = "images/aruba-intro.png"
-INTRO_ALT = (
-    "Aruba island sightseeing with Eagle Beach turquoise water, "
-    "California Lighthouse and rugged north coast"
-)
+INTRO_ALT = "Aruba cactus and dry landscape inland from the beaches"
 
 
 def page_shell(
@@ -78,7 +75,7 @@ def page_shell(
     trust_attr = '\n  data-trust-strip="partials/trust-strip.html"' if trust else ""
     content_file = content if content.startswith("content/") else f"content/{content}"
     return f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -289,7 +286,7 @@ def _snapshot_default(**overrides: str) -> str:
         best_for="Beaches, wreck snorkel, island tours",
         activity_level="Varies — see comparison",
         family="Excellent with age-appropriate picks",
-        return_ship="Operators usually allow 60–90 min buffer",
+        return_ship="Build your own buffer; confirm operator return plan",
         popular="Eagle Beach, Antilla snorkel, UTV, island drive",
     )
     defaults.update(overrides)
@@ -663,7 +660,7 @@ def _content_faq() -> str:
       <details class="faq-item rounded-2xl border border-aruba-100 p-5"><summary class="font-semibold text-gray-900 cursor-pointer">Eagle Beach or Palm Beach for a port day?</summary>
         <p class="mt-4 text-sm text-gray-500">Eagle Beach is quieter and iconic; Palm Beach has more facilities and water sports. Cruise transfers often default to Eagle Beach.</p></details>
       <details class="faq-item rounded-2xl border border-aruba-100 p-5"><summary class="font-semibold text-gray-900 cursor-pointer">Ship excursion or book independently?</summary>
-        <p class="mt-4 text-sm text-gray-500">Ship tours guarantee the vessel waits if the operator is late. Reputable Aruba operators plan returns with buffer — confirm policies and read reviews.</p></details>
+        <p class="mt-4 text-sm text-gray-500">Ship-sold tours often include a wait-if-late policy from the cruise line. Independent operators typically plan a return window — confirm policies, build your own buffer, and do not cut it fine.</p></details>
       {_internal_links()}
     </div></section>"""
 
@@ -674,7 +671,7 @@ def _faq_schema() -> dict:
         ("Is the Antilla shipwreck safe for beginners?", "Yes on organised snorkel boats with surface viewing only."),
         ("Do I need Aruban florin cash?", "US dollars are widely accepted; ATMs are in Oranjestad."),
         ("Eagle Beach or Palm Beach for a port day?", "Eagle Beach is quieter; Palm Beach has more facilities."),
-        ("Ship excursion or book independently?", "Ship tours guarantee wait-if-late; reputable locals plan buffer returns."),
+        ("Ship excursion or book independently?", "Ship-sold tours often include wait-if-late; confirm independent operator policies and build your own buffer."),
     ]
     return {
         "@context": "https://schema.org",
@@ -1125,6 +1122,13 @@ def main() -> None:
         ("aruba-family-excursions.html", "0.8", "monthly"),
         ("aruba-beaches-guide.html", "0.8", "monthly"),
         ("aruba-faq.html", "0.7", "monthly"),
+        ("aruba-beach-vs-island-tour.html", "0.8", "monthly"),
+        ("aruba-relaxed-vs-active.html", "0.8", "monthly"),
+        ("about.html", "0.5", "yearly"),
+        ("contact.html", "0.5", "yearly"),
+        ("privacy.html", "0.3", "yearly"),
+        ("terms.html", "0.3", "yearly"),
+        ("methodology.html", "0.5", "yearly"),
     ]
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc, priority, freq in urls:
@@ -1146,7 +1150,11 @@ def main() -> None:
   "name": "aruba-shore-excursion",
   "private": true,
   "scripts": {
-    "build": "python3 scripts/build-aruba-site.py",
+    "sync:schedules": "node scripts/sync-schedules.mjs",
+    "qa:schedules": "node scripts/qa-schedules.mjs",
+    "build": "python3 scripts/build-aruba-site.py && python3 scripts/world2_extend_aruba.py && python3 scripts/generate_schedule_pages.py",
+    "build:all": "npm run sync:schedules && npm run qa:schedules && npm run build",
+    "images": "python3 scripts/fetch-aruba-images.py",
     "deploy": "wrangler deploy",
     "preview": "python3 -m http.server 8902"
   },
@@ -1157,6 +1165,7 @@ def main() -> None:
 """,
     )
 
+    # Domain may already be attached in Cloudflare; prefer workers_dev for local hygiene.
     write(
         "wrangler.jsonc",
         """{
@@ -1165,12 +1174,7 @@ def main() -> None:
   "compatibility_date": "2026-06-04",
   "observability": { "enabled": true },
   "assets": { "directory": "." },
-  "routes": [
-    {
-      "pattern": "arubashoreexcursion.com",
-      "custom_domain": true
-    }
-  ]
+  "workers_dev": true
 }
 """,
     )

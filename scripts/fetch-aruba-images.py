@@ -13,35 +13,36 @@ IMAGES = ROOT / "images"
 CUSTOM_IMAGES = frozenset({"aruba-cruise-port.png", "antilla-shipwreck.png"})
 
 # output filename -> (Unsplash photo slug, width for download)
-# Prefer Aruba-tagged photos where available; see images/ATTRIBUTION.md
+# Prefer Aruba-tagged photos; avoid Cozumel jeep (bHavJvvmcAU) and Mayan ruins (PsgyWVeJjOA).
+# Eagle Beach / lighthouse reuse within this site is intentional.
 DOWNLOADS: list[tuple[str, str, int]] = [
-    # Home: Eagle Beach aerial, turquoise water (Aruba)
-    ("hero-aruba.png", "vYXrNeIpm3w", 1920),
-    # Best excursions collage-style: iconic Eagle Beach fofoti + water
+    # Home hero: Eagle Beach sailboat sunset (Aruba)
+    ("hero-aruba.png", "4jbbHRFjC8Y", 1920),
+    # Best excursions: iconic Eagle Beach fofoti
     ("best-aruba-excursions.png", "WLD2CQuHVhU", 1920),
-    # One day: Oranjestad colourful street / port area
-    ("one-day-aruba.png", "bHavJvvmcAU", 1920),
-    # Eagle Beach fofoti trees
+    # One day: Oranjestad palm street (not jeep slug)
+    ("one-day-aruba.png", "YPIGSPOV3r4", 1920),
+    # Eagle Beach fofoti (intentional reuse with best)
     ("eagle-beach-hero.png", "WLD2CQuHVhU", 1920),
-    # Snorkeller over coral reef
-    ("aruba-snorkelling.png", "uTgKYNhuKOk", 1920),
+    # Snorkeller with school of fish (distinct from shared SXM asset)
+    ("aruba-snorkelling.png", "mFGqpEbrC1A", 1920),
     # California Lighthouse, Aruba
     ("aruba-island-tours.png", "x07QXWFgTVU", 1920),
-    # UTV / desert adventure (Aruba's arid terrain)
-    ("aruba-utv-adventures.png", "eXV74Ia7Log", 1920),
+    # Arid desert landscape for UTV / dry-side identity
+    ("aruba-utv-adventures.png", "8vCQxoA5_oQ", 1920),
     # Natural pool / rocky coastline
     ("arikok-national-park.png", "aDsrhwXSjpA", 1920),
     ("california-lighthouse.png", "x07QXWFgTVU", 1920),
-    # Private tour: scenic coastal drive vehicle
-    ("aruba-private-tours.png", "PsgyWVeJjOA", 1920),
-    # Family on sandy beach
-    ("aruba-family.png", "BUIEgc7J0eo", 1920),
+    # Private tours: Oranjestad colourful streetscape (not Mayan ruins)
+    ("aruba-private-tours.png", "2_AU-j0ZrlM", 1920),
+    # Family / beach day feel at Eagle Beach
+    ("aruba-family.png", "fKORJlU4d9I", 1920),
     # Palm Beach chairs and turquoise water, Aruba
-    ("aruba-beaches.png", "Q0HR_nrDkB8", 1920),
+    ("aruba-beaches.png", "EdHmTaoQtlI", 1920),
     # Cruise passengers / Oranjestad near port
     ("aruba-faq.png", "PCLabewO7eE", 1920),
-    # Intro: aerial Aruba coastline
-    ("aruba-intro.png", "YZ8Jc6TiH2A", 1920),
+    # Intro: cactus overlooking turquoise water (dry landscape identity)
+    ("aruba-intro.png", "AG_fwqAk19M", 1920),
 ]
 
 

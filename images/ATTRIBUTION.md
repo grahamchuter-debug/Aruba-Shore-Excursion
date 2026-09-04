@@ -1,25 +1,27 @@
 # Image attribution
 
-Site images are sourced from [Unsplash](https://unsplash.com) under the [Unsplash License](https://unsplash.com/license) (free for commercial and non-commercial use).
+Site images are sourced from [Unsplash](https://unsplash.com) under the [Unsplash License](https://unsplash.com/license) (free for commercial and non-commercial use), except custom site-provided files noted below.
 
 | File | Unsplash photo | Notes |
 |------|----------------|-------|
-| `hero-aruba.png` | [vYXrNeIpm3w](https://unsplash.com/photos/vYXrNeIpm3w) | Aerial beach, Aruba |
-| `best-aruba-excursions.png` | [WLD2CQuHVhU](https://unsplash.com/photos/WLD2CQuHVhU) | Eagle Beach fofoti tree |
+| `hero-aruba.png` | [4jbbHRFjC8Y](https://unsplash.com/photos/4jbbHRFjC8Y) | Eagle Beach sailboat sunset, Aruba |
+| `best-aruba-excursions.png` | [WLD2CQuHVhU](https://unsplash.com/photos/WLD2CQuHVhU) | Eagle Beach fofoti tree, Aruba |
 | `aruba-cruise-port.png` | *(site-provided)* | Cruise ship at Oranjestad pier — custom photo |
-| `one-day-in-aruba.png` | [bHavJvvmcAU](https://unsplash.com/photos/bHavJvvmcAU) | Colourful Oranjestad-style street, Aruba |
-| `eagle-beach-hero.png` | [WLD2CQuHVhU](https://unsplash.com/photos/WLD2CQuHVhU) | Eagle Beach, Aruba |
-| `aruba-snorkelling.png` | [uTgKYNhuKOk](https://unsplash.com/photos/uTgKYNhuKOk) | Snorkelling over reef |
+| `one-day-aruba.png` | [YPIGSPOV3r4](https://unsplash.com/photos/YPIGSPOV3r4) | Oranjestad palm-lined street, Aruba |
+| `eagle-beach-hero.png` | [WLD2CQuHVhU](https://unsplash.com/photos/WLD2CQuHVhU) | Eagle Beach, Aruba (intentional reuse) |
+| `aruba-snorkelling.png` | [mFGqpEbrC1A](https://unsplash.com/photos/mFGqpEbrC1A) | Snorkeller with school of fish |
 | `antilla-shipwreck.png` | *(site-provided)* | Aerial Antilla shipwreck with snorkelers — custom photo |
 | `aruba-island-tours.png` | [x07QXWFgTVU](https://unsplash.com/photos/x07QXWFgTVU) | California Lighthouse, Aruba |
-| `aruba-utv-atv-adventures.png` | [eXV74Ia7Log](https://unsplash.com/photos/eXV74Ia7Log) | UTV on desert dunes |
-| `arikok-national-park.png` | [aDsrhwXSjpA](https://unsplash.com/photos/aDsrhwXSjpA) | Natural pool / coastline |
-| `california-lighthouse.png` | [x07QXWFgTVU](https://unsplash.com/photos/x07QXWFgTVU) | California Lighthouse, Aruba |
-| `aruba-private-tours.png` | [PsgyWVeJjOA](https://unsplash.com/photos/PsgyWVeJjOA) | Aerial Aruba coastline |
-| `aruba-family.png` | [BUIEgc7J0eo](https://unsplash.com/photos/BUIEgc7J0eo) | Family on tropical beach |
-| `aruba-beaches.png` | [Q0HR_nrDkB8](https://unsplash.com/photos/Q0HR_nrDkB8) | Palm Beach, Aruba |
+| `aruba-utv-adventures.png` | [8vCQxoA5_oQ](https://unsplash.com/photos/8vCQxoA5_oQ) | Arid desert landscape for dry-side adventures |
+| `arikok-national-park.png` | [aDsrhwXSjpA](https://unsplash.com/photos/aDsrhwXSjpA) | Natural pool / rocky coastline |
+| `california-lighthouse.png` | [x07QXWFgTVU](https://unsplash.com/photos/x07QXWFgTVU) | California Lighthouse, Aruba (intentional reuse) |
+| `aruba-private-tours.png` | [2_AU-j0ZrlM](https://unsplash.com/photos/2_AU-j0ZrlM) | Colourful Oranjestad streetscape (not ruins) |
+| `aruba-family.png` | [fKORJlU4d9I](https://unsplash.com/photos/fKORJlU4d9I) | Eagle Beach, Aruba |
+| `aruba-beaches.png` | [EdHmTaoQtlI](https://unsplash.com/photos/EdHmTaoQtlI) | Palm Beach loungers, Aruba |
 | `aruba-faq.png` | [PCLabewO7eE](https://unsplash.com/photos/PCLabewO7eE) | Oranjestad near Aruba Ports Authority |
-| `aruba-intro.png` | [YZ8Jc6TiH2A](https://unsplash.com/photos/YZ8Jc6TiH2A) | White sand & turquoise water, Aruba |
+| `aruba-intro.png` | [AG_fwqAk19M](https://unsplash.com/photos/AG_fwqAk19M) | Cactus overlooking turquoise water — dry landscape identity |
+
+**Integrity note:** Replaced assets that previously matched Cozumel (`bHavJvvmcAU` jeep, `PsgyWVeJjOA` Mayan ruins) or St Maarten shared hashes. Eagle Beach and lighthouse images may be reused deliberately within this site only.
 
 Re-download after changing sources:
 

@@ -1,0 +1,18 @@
+{
+  "portSlug": "aruba",
+  "destinationName": "Aruba",
+  "domain": "https://arubashoreexcursion.com",
+  "siteName": "Aruba Shore Excursion",
+  "authoritySource": "../caribbean-shore-excursions/data/imported-schedules/aruba.json",
+  "localOutput": "data/generated/aruba-schedules.json",
+  "scheduleHubPath": "ship-schedule",
+  "expectedTotals": {
+    "total": 510,
+    "byYear": {
+      "2026": 170,
+      "2027": 340,
+      "2028": 0
+    }
+  },
+  "notes": "GENERATED FROM CARIBBEAN AUTHORITY — DO NOT MANUALLY EDIT schedule output files."
+}
