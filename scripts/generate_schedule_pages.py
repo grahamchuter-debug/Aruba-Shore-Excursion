@@ -157,12 +157,12 @@ def write(path: Path, content: str) -> None:
 
 def hub_page(meta: dict, by_year: dict, months: list[str]) -> str:
     year_links = "".join(
-        f'<a class="decision-chip" href="{y}/">{y} · {by_year.get(y, 0)} calls</a>'
+        f'<a class="decision-chip" href="/{HUB}/{y}">{y} · {by_year.get(y, 0)} calls</a>'
         for y in sorted(by_year)
         if by_year[y] > 0 and y != "2028"
     )
     month_links = "".join(
-        f'<li><a href="{ym[:4]}/{ym[5:]}/">{month_label(ym)} — {meta["integrity"]["byMonth"][ym]} calls</a></li>'
+        f'<li><a href="/{HUB}/{ym[:4]}/{ym[5:]}">{month_label(ym)} — {meta["integrity"]["byMonth"][ym]} calls</a></li>'
         for ym in months
     )
     return f"""<!-- GENERATED FROM CARIBBEAN AUTHORITY — DO NOT MANUALLY EDIT -->
@@ -179,7 +179,7 @@ def hub_page(meta: dict, by_year: dict, months: list[str]) -> str:
     <div class="bg-sand-50 rounded-2xl p-6 border border-pr-100 mb-10">
       <h2 class="font-display font-bold text-lg text-gray-900 mb-2">{meta["callCount"]:,} scheduled calls</h2>
       <p class="text-sm text-gray-600">{meta["integrity"]["firstDate"]} to {meta["integrity"]["lastDate"]} · {meta["integrity"]["uniqueShips"]} ships · {meta["integrity"]["cruiseLines"]} cruise lines · {meta["integrity"]["populatedMonths"]} populated months</p>
-      <p class="text-sm text-gray-600 mt-3"><a class="text-ocean-600 font-semibold" href="../aruba-cruise-port-guide.html">Port &amp; terminal guide</a> · <a class="text-ocean-600 font-semibold" href="../best-aruba-shore-excursions.html">Excursion options</a> · <a class="text-ocean-600 font-semibold" href="../one-day-in-aruba.html">One-day planning</a></p>
+      <p class="text-sm text-gray-600 mt-3"><a class="text-ocean-600 font-semibold" href="/aruba-cruise-port-guide">Port &amp; terminal guide</a> · <a class="text-ocean-600 font-semibold" href="/best-aruba-shore-excursions">Excursion options</a> · <a class="text-ocean-600 font-semibold" href="/one-day-in-aruba">One-day planning</a></p>
     </div>
     <h2 class="font-display font-bold text-xl text-gray-900 mb-4">Populated months</h2>
     <ul class="schedule-month-list space-y-2 text-sm">{month_links}</ul>
@@ -190,7 +190,7 @@ def hub_page(meta: dict, by_year: dict, months: list[str]) -> str:
 
 def year_page(year: str, count: int, months: list[str], by_month: dict) -> str:
     links = "".join(
-        f'<a class="decision-chip" href="{ym[5:]}/">{month_label(ym)} · {by_month[ym]}</a>'
+        f'<a class="decision-chip" href="/{HUB}/{year}/{ym[5:]}">{month_label(ym)} · {by_month[ym]}</a>'
         for ym in months
         if ym.startswith(year)
     )
@@ -198,13 +198,13 @@ def year_page(year: str, count: int, months: list[str], by_month: dict) -> str:
 <section class="schedule-hub pt-24 pb-16">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <nav class="text-xs text-gray-500 mb-4" aria-label="Breadcrumb">
-      <a href="../" class="hover:text-ocean-600">Ship schedule</a> / <span>{year}</span>
+      <a href="/{HUB}" class="hover:text-ocean-600">Ship schedule</a> / <span>{year}</span>
     </nav>
     <h1 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-3">Aruba cruise schedule {year}</h1>
     <p class="text-gray-600 mb-4">{count} scheduled calls in {year}. Open a month to search by ship or date.</p>
     {disclaimer()}
     <div class="flex flex-wrap gap-3 mt-8">{links}</div>
-    <p class="mt-10 text-sm"><a class="text-ocean-600 font-semibold" href="../">← All years</a></p>
+    <p class="mt-10 text-sm"><a class="text-ocean-600 font-semibold" href="/{HUB}">← All years</a></p>
   </div>
 </section>
 """
@@ -218,8 +218,8 @@ def month_page(ym: str, calls: list[dict]) -> str:
 <section class="schedule-hub pt-24 pb-16">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <nav class="text-xs text-gray-500 mb-4" aria-label="Breadcrumb">
-      <a href="../../" class="hover:text-ocean-600">Ship schedule</a> /
-      <a href="../" class="hover:text-ocean-600">{y}</a> /
+      <a href="/{HUB}" class="hover:text-ocean-600">Ship schedule</a> /
+      <a href="/{HUB}/{y}" class="hover:text-ocean-600">{y}</a> /
       <span>{label}</span>
     </nav>
     <h1 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-2">{label} — Aruba cruise calls</h1>
@@ -227,9 +227,9 @@ def month_page(ym: str, calls: list[dict]) -> str:
     {disclaimer()}
     <div class="mt-8">{body}</div>
     <p class="mt-10 text-sm flex flex-wrap gap-4">
-      <a class="text-ocean-600 font-semibold" href="../">← {y} months</a>
-      <a class="text-ocean-600 font-semibold" href="../../../aruba-cruise-port-guide.html">Port guide</a>
-      <a class="text-ocean-600 font-semibold" href="../../../best-aruba-shore-excursions.html">Excursions</a>
+      <a class="text-ocean-600 font-semibold" href="/{HUB}/{y}">← {y} months</a>
+      <a class="text-ocean-600 font-semibold" href="/aruba-cruise-port-guide">Port guide</a>
+      <a class="text-ocean-600 font-semibold" href="/best-aruba-shore-excursions">Excursions</a>
     </p>
   </div>
 </section>
@@ -238,13 +238,13 @@ def month_page(ym: str, calls: list[dict]) -> str:
 
 def sitemap_entries(months: list[str], years: list[str]) -> list[tuple[str, str, str]]:
     entries = [
-        (f"{HUB}/", "0.8", "weekly"),
+        (f"{HUB}", "0.8", "weekly"),
     ]
     for y in years:
-        entries.append((f"{HUB}/{y}/", "0.7", "monthly"))
+        entries.append((f"{HUB}/{y}", "0.7", "monthly"))
     for ym in months:
         y, m = ym.split("-")
-        entries.append((f"{HUB}/{y}/{m}/", "0.6", "monthly"))
+        entries.append((f"{HUB}/{y}/{m}", "0.6", "monthly"))
     return entries
 
 
@@ -281,7 +281,7 @@ def main() -> list[tuple[str, str, str]]:
         page_shell(
             title="Aruba Cruise Ship Schedule | Find Your Ship &amp; Date",
             description="Aruba cruise ship schedule for cruise passengers — find your date and ship, then plan beach, wreck snorkel or island excursions around your port call.",
-            canonical_path=f"{HUB}/",
+            canonical_path=f"{HUB}",
             depth=1,
             body_html=hub_page(meta, dict(by_year), months),
         ),
@@ -293,7 +293,7 @@ def main() -> list[tuple[str, str, str]]:
             page_shell(
                 title=f"Aruba Cruise Schedule {y} | Ship Calls by Month",
                 description=f"Aruba cruise ship schedule for {y} — {by_year[y]} scheduled calls. Browse populated months and search by ship or date.",
-                canonical_path=f"{HUB}/{y}/",
+                canonical_path=f"{HUB}/{y}",
                 depth=2,
                 body_html=year_page(y, by_year[y], months, meta["integrity"]["byMonth"]),
             ),
@@ -307,7 +307,7 @@ def main() -> list[tuple[str, str, str]]:
             page_shell(
                 title=f"{label} Aruba Cruise Schedule | {len(month_calls)} Ship Calls",
                 description=f"Aruba cruise ship arrivals in {label} — {len(month_calls)} scheduled calls with ship names, cruise lines and planned arrival/departure times.",
-                canonical_path=f"{HUB}/{y}/{m}/",
+                canonical_path=f"{HUB}/{y}/{m}",
                 depth=3,
                 body_html=month_page(ym, month_calls),
             ),

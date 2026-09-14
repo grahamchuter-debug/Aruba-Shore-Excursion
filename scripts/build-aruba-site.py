@@ -28,15 +28,15 @@ SNORKEL_IMG = "images/aruba-snorkelling.png"
 SNORKEL_ALT = "Snorkelling tour with clear water and tropical fish"
 ANTILLA_IMG = "images/antilla-shipwreck.png"
 ANTILLA_ALT = (
-    "Aerial view of the Antilla shipwreck in clear turquoise water off Aruba "
-    "with snorkelers and an excursion boat nearby"
+    "Aerial view of a shallow Aruba shipwreck snorkel site "
+    "with swimmers and a boat nearby"
 )
 ISLAND_IMG = "images/aruba-island-tours.png"
 ISLAND_ALT = "Island sightseeing tour visiting Aruba landmarks and viewpoints"
-UTV_IMG = "images/aruba-utv-adventures.png"
-UTV_ALT = "Arid desert landscape representing Aruba UTV and dry-side adventures"
-ARIKOK_IMG = "images/arikok-national-park.png"
-ARIKOK_ALT = "Natural Pool in Arikok National Park Aruba"
+UTV_IMG = "images/aruba-intro.png"
+UTV_ALT = "Aruba dry coastal landscape for UTV and dry-side adventure context"
+ARIKOK_IMG = "images/aruba-intro.png"
+ARIKOK_ALT = "Aruba dry coastal landscape near Arikok National Park"
 LIGHTHOUSE_IMG = "images/california-lighthouse.png"
 LIGHTHOUSE_ALT = "California Lighthouse in Aruba on an island sightseeing tour"
 PRIVATE_IMG = "images/aruba-private-tours.png"
@@ -653,8 +653,8 @@ def _content_faq() -> str:
     <section class="py-8 bg-white"><div class="max-w-3xl mx-auto px-4 space-y-4">
       <details class="faq-item rounded-2xl border border-aruba-100 p-5"><summary class="font-semibold text-gray-900 cursor-pointer">How long do cruise ships stay in Aruba?</summary>
         <p class="mt-4 text-sm text-gray-500">Most Oranjestad calls are 8 to 10 hours. A beach morning plus Antilla snorkel or island tour fits comfortably with return buffer.</p></details>
-      <details class="faq-item rounded-2xl border border-aruba-100 p-5"><summary class="font-semibold text-gray-900 cursor-pointer">Is the Antilla shipwreck safe for beginners?</summary>
-        <p class="mt-4 text-sm text-gray-500">Yes on organised snorkel boats with crew support. You view the wreck from the surface — no diving inside the hull.</p></details>
+      <details class="faq-item rounded-2xl border border-aruba-100 p-5"><summary class="font-semibold text-gray-900 cursor-pointer">Is the Antilla shipwreck suitable for beginners?</summary>
+        <p class="mt-4 text-sm text-gray-500">Organised snorkel boats typically keep viewing at the surface with crew guidance and no hull penetration. Comfort in open water still varies — ask the operator about conditions, gear and experience level before you book.</p></details>
       <details class="faq-item rounded-2xl border border-aruba-100 p-5"><summary class="font-semibold text-gray-900 cursor-pointer">Do I need Aruban florin cash?</summary>
         <p class="mt-4 text-sm text-gray-500">US dollars are widely accepted. Small vendors may prefer cash; ATMs are in Oranjestad near the port.</p></details>
       <details class="faq-item rounded-2xl border border-aruba-100 p-5"><summary class="font-semibold text-gray-900 cursor-pointer">Eagle Beach or Palm Beach for a port day?</summary>
@@ -668,7 +668,7 @@ def _content_faq() -> str:
 def _faq_schema() -> dict:
     qa = [
         ("How long do cruise ships stay in Aruba?", "Most Oranjestad calls are 8 to 10 hours."),
-        ("Is the Antilla shipwreck safe for beginners?", "Yes on organised snorkel boats with surface viewing only."),
+        ("Is the Antilla shipwreck suitable for beginners?", "Organised snorkel boats typically keep viewing at the surface with crew guidance and no hull penetration. Comfort in open water still varies — ask the operator about conditions, gear and experience level before you book."),
         ("Do I need Aruban florin cash?", "US dollars are widely accepted; ATMs are in Oranjestad."),
         ("Eagle Beach or Palm Beach for a port day?", "Eagle Beach is quieter; Palm Beach has more facilities."),
         ("Ship excursion or book independently?", "Ship-sold tours often include wait-if-late; confirm independent operator policies and build your own buffer."),
@@ -711,9 +711,21 @@ def main() -> None:
       <a href="best-aruba-shore-excursions.html" class="hidden md:inline-flex items-center gap-2 btn-ocean text-white text-sm font-semibold px-4 py-2 rounded-full shadow-md">
         Compare Tours
       </a>
-      <button type="button" class="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-sand-50" aria-label="Open menu">
+      <button type="button" class="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-sand-50" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden pb-4 border-t border-aruba-100">
+      <div class="flex flex-col gap-3 pt-3 text-sm font-medium">
+        <a href="index.html" data-nav="home" class="text-gray-600 hover:text-ocean-600">Home</a>
+        <a href="best-aruba-shore-excursions.html" data-nav="excursions" class="text-gray-600 hover:text-ocean-600">Excursions</a>
+        <a href="eagle-beach-excursions.html" data-nav="beaches" class="text-gray-600 hover:text-ocean-600">Eagle Beach</a>
+        <a href="aruba-snorkelling-tours.html" data-nav="snorkelling" class="text-gray-600 hover:text-ocean-600">Snorkelling</a>
+        <a href="aruba-island-tours.html" data-nav="island" class="text-gray-600 hover:text-ocean-600">Island Tours</a>
+        <a href="ship-schedule/" data-nav="schedule" class="text-gray-600 hover:text-ocean-600">Ship Schedule</a>
+        <a href="aruba-cruise-port-guide.html" data-nav="port" class="text-gray-600 hover:text-ocean-600">Port Guide</a>
+        <a href="contact.html" data-nav="contact" class="text-gray-600 hover:text-ocean-600">Contact</a>
+      </div>
     </div>
   </div>
 </nav>
@@ -1152,10 +1164,10 @@ def main() -> None:
   "scripts": {
     "sync:schedules": "node scripts/sync-schedules.mjs",
     "qa:schedules": "node scripts/qa-schedules.mjs",
-    "build": "python3 scripts/build-aruba-site.py && python3 scripts/world2_extend_aruba.py && python3 scripts/generate_schedule_pages.py",
+    "build": "python3 scripts/build-aruba-site.py && python3 scripts/world2_extend_aruba.py && python3 scripts/generate_schedule_pages.py && python3 scripts/assemble-aruba-pages.py",
     "build:all": "npm run sync:schedules && npm run qa:schedules && npm run build",
     "images": "python3 scripts/fetch-aruba-images.py",
-    "deploy": "wrangler deploy",
+    "deploy": "npm run build && wrangler deploy",
     "preview": "python3 -m http.server 8902"
   },
   "devDependencies": {
@@ -1165,16 +1177,33 @@ def main() -> None:
 """,
     )
 
-    # Domain may already be attached in Cloudflare; prefer workers_dev for local hygiene.
+    # Phase 31B: Workers Assets + worker redirects/404. Routes required for custom domains.
     write(
         "wrangler.jsonc",
         """{
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "aruba-shore-excursion",
+  "main": "worker.js",
   "compatibility_date": "2026-06-04",
+  "workers_dev": true,
   "observability": { "enabled": true },
-  "assets": { "directory": "." },
-  "workers_dev": true
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": true
+  },
+  "routes": [
+    {
+      "pattern": "arubashoreexcursion.com/*",
+      "zone_name": "arubashoreexcursion.com"
+    },
+    {
+      "pattern": "www.arubashoreexcursion.com/*",
+      "zone_name": "arubashoreexcursion.com"
+    }
+  ]
 }
 """,
     )
@@ -1189,7 +1218,10 @@ if [[ ! -f node_modules/.bin/wrangler ]]; then
   npm install
 fi
 
-echo "Deploying {SITE} to Cloudflare..."
+echo "Building Aruba Shore Excursion…"
+npm run build
+
+echo "Deploying Aruba Shore Excursion to Cloudflare..."
 npx wrangler deploy
 
 echo "Done. Check {DOMAIN}/ shortly."

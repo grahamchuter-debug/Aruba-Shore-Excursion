@@ -12,8 +12,6 @@ Site images are sourced from [Unsplash](https://unsplash.com) under the [Unsplas
 | `aruba-snorkelling.png` | [mFGqpEbrC1A](https://unsplash.com/photos/mFGqpEbrC1A) | Snorkeller with school of fish |
 | `antilla-shipwreck.png` | *(site-provided)* | Aerial Antilla shipwreck with snorkelers — custom photo |
 | `aruba-island-tours.png` | [x07QXWFgTVU](https://unsplash.com/photos/x07QXWFgTVU) | California Lighthouse, Aruba |
-| `aruba-utv-adventures.png` | [8vCQxoA5_oQ](https://unsplash.com/photos/8vCQxoA5_oQ) | Arid desert landscape for dry-side adventures |
-| `arikok-national-park.png` | [aDsrhwXSjpA](https://unsplash.com/photos/aDsrhwXSjpA) | Natural pool / rocky coastline |
 | `california-lighthouse.png` | [x07QXWFgTVU](https://unsplash.com/photos/x07QXWFgTVU) | California Lighthouse, Aruba (intentional reuse) |
 | `aruba-private-tours.png` | [2_AU-j0ZrlM](https://unsplash.com/photos/2_AU-j0ZrlM) | Colourful Oranjestad streetscape (not ruins) |
 | `aruba-family.png` | [fKORJlU4d9I](https://unsplash.com/photos/fKORJlU4d9I) | Eagle Beach, Aruba |
@@ -30,3 +28,5 @@ python3 scripts/fetch-aruba-images.py
 ```
 
 The build script does not overwrite existing images in `images/`.
+
+**Phase 31B:** Removed `arikok-national-park.png` (wrong geography) and `aruba-utv-adventures.png` (misleading continental desert). Arikok/UTV pages now use `aruba-intro.png`.

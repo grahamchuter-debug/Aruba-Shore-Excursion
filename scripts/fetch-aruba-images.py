@@ -14,7 +14,8 @@ CUSTOM_IMAGES = frozenset({"aruba-cruise-port.png", "antilla-shipwreck.png"})
 
 # output filename -> (Unsplash photo slug, width for download)
 # Prefer Aruba-tagged photos; avoid Cozumel jeep (bHavJvvmcAU) and Mayan ruins (PsgyWVeJjOA).
-# Eagle Beach / lighthouse reuse within this site is intentional.
+    # Eagle Beach / lighthouse reuse within this site is intentional.
+    # Phase 31B: do not re-fetch removed RED/AMBER assets (arikok-national-park, aruba-utv-adventures).
 DOWNLOADS: list[tuple[str, str, int]] = [
     # Home hero: Eagle Beach sailboat sunset (Aruba)
     ("hero-aruba.png", "4jbbHRFjC8Y", 1920),
@@ -28,10 +29,6 @@ DOWNLOADS: list[tuple[str, str, int]] = [
     ("aruba-snorkelling.png", "mFGqpEbrC1A", 1920),
     # California Lighthouse, Aruba
     ("aruba-island-tours.png", "x07QXWFgTVU", 1920),
-    # Arid desert landscape for UTV / dry-side identity
-    ("aruba-utv-adventures.png", "8vCQxoA5_oQ", 1920),
-    # Natural pool / rocky coastline
-    ("arikok-national-park.png", "aDsrhwXSjpA", 1920),
     ("california-lighthouse.png", "x07QXWFgTVU", 1920),
     # Private tours: Oranjestad colourful streetscape (not Mayan ruins)
     ("aruba-private-tours.png", "2_AU-j0ZrlM", 1920),
@@ -41,7 +38,7 @@ DOWNLOADS: list[tuple[str, str, int]] = [
     ("aruba-beaches.png", "EdHmTaoQtlI", 1920),
     # Cruise passengers / Oranjestad near port
     ("aruba-faq.png", "PCLabewO7eE", 1920),
-    # Intro: cactus overlooking turquoise water (dry landscape identity)
+    # Intro: cactus overlooking turquoise water (dry landscape identity; also used for Arikok/UTV)
     ("aruba-intro.png", "AG_fwqAk19M", 1920),
 ]
 

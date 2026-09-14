@@ -184,9 +184,21 @@ def write_nav() -> None:
       <a href="contact.html" class="hidden md:inline-flex items-center gap-2 btn-ocean text-white text-sm font-semibold px-4 py-2 rounded-full shadow-md">
         Contact concierge
       </a>
-      <button type="button" class="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-sand-50" aria-label="Open menu">
+      <button type="button" class="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-sand-50" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden pb-4 border-t border-aruba-100">
+      <div class="flex flex-col gap-3 pt-3 text-sm font-medium">
+        <a href="index.html" data-nav="home" class="text-gray-600 hover:text-ocean-600">Home</a>
+        <a href="best-aruba-shore-excursions.html" data-nav="excursions" class="text-gray-600 hover:text-ocean-600">Excursions</a>
+        <a href="eagle-beach-excursions.html" data-nav="beaches" class="text-gray-600 hover:text-ocean-600">Eagle Beach</a>
+        <a href="aruba-snorkelling-tours.html" data-nav="snorkelling" class="text-gray-600 hover:text-ocean-600">Snorkelling</a>
+        <a href="aruba-island-tours.html" data-nav="island" class="text-gray-600 hover:text-ocean-600">Island Tours</a>
+        <a href="ship-schedule/" data-nav="schedule" class="text-gray-600 hover:text-ocean-600">Ship Schedule</a>
+        <a href="aruba-cruise-port-guide.html" data-nav="port" class="text-gray-600 hover:text-ocean-600">Port Guide</a>
+        <a href="contact.html" data-nav="contact" class="text-gray-600 hover:text-ocean-600">Contact</a>
+      </div>
     </div>
   </div>
 </nav>
@@ -592,10 +604,10 @@ NEW_PAGES = [
         description="About Aruba Shore Excursion — independent planning guidance for cruise passengers calling at Oranjestad.",
         keywords="about Aruba Shore Excursion, Aruba cruise planning",
         path="about.html",
-        data_page="contact",
-        hero="partials/hero-port-guide.html",
+        data_page="about",
+        hero="partials/hero-about.html",
         content="about.html",
-        preload=PORT_IMG,
+        preload=INTRO_IMG,
     ),
     dict(
         file="contact.html",
@@ -604,9 +616,9 @@ NEW_PAGES = [
         keywords="contact Aruba Shore Excursion, Aruba cruise concierge",
         path="contact.html",
         data_page="contact",
-        hero="partials/hero-port-guide.html",
+        hero="partials/hero-contact.html",
         content="contact.html",
-        preload=PORT_IMG,
+        preload=INTRO_IMG,
     ),
     dict(
         file="privacy.html",
@@ -614,10 +626,10 @@ NEW_PAGES = [
         description="Privacy policy for Aruba Shore Excursion — static planning site practices.",
         keywords="privacy Aruba Shore Excursion",
         path="privacy.html",
-        data_page="contact",
-        hero="partials/hero-port-guide.html",
+        data_page="privacy",
+        hero="partials/hero-privacy.html",
         content="privacy.html",
-        preload=PORT_IMG,
+        preload=INTRO_IMG,
     ),
     dict(
         file="terms.html",
@@ -625,10 +637,10 @@ NEW_PAGES = [
         description="Terms of use for Aruba Shore Excursion planning content.",
         keywords="terms Aruba Shore Excursion",
         path="terms.html",
-        data_page="contact",
-        hero="partials/hero-port-guide.html",
+        data_page="terms",
+        hero="partials/hero-terms.html",
         content="terms.html",
-        preload=PORT_IMG,
+        preload=INTRO_IMG,
     ),
     dict(
         file="methodology.html",
@@ -636,10 +648,10 @@ NEW_PAGES = [
         description="How Aruba Shore Excursion assesses cruise excursion options — timing, honest claims and schedule integrity.",
         keywords="Aruba excursion methodology, how we choose Aruba tours",
         path="methodology.html",
-        data_page="contact",
-        hero="partials/hero-port-guide.html",
+        data_page="methodology",
+        hero="partials/hero-methodology.html",
         content="methodology.html",
-        preload=PORT_IMG,
+        preload=INTRO_IMG,
     ),
 ]
 
@@ -699,10 +711,10 @@ def write_package_json() -> None:
   "scripts": {
     "sync:schedules": "node scripts/sync-schedules.mjs",
     "qa:schedules": "node scripts/qa-schedules.mjs",
-    "build": "python3 scripts/build-aruba-site.py && python3 scripts/world2_extend_aruba.py && python3 scripts/generate_schedule_pages.py",
+    "build": "python3 scripts/build-aruba-site.py && python3 scripts/world2_extend_aruba.py && python3 scripts/generate_schedule_pages.py && python3 scripts/assemble-aruba-pages.py",
     "build:all": "npm run sync:schedules && npm run qa:schedules && npm run build",
     "images": "python3 scripts/fetch-aruba-images.py",
-    "deploy": "wrangler deploy",
+    "deploy": "npm run build && wrangler deploy",
     "preview": "python3 -m http.server 8902"
   },
   "devDependencies": {

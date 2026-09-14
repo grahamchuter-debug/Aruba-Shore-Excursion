@@ -1,6 +1,6 @@
 /**
- * Loads shared layout partials. Requires a local server (not file://).
- * Set on <body>: data-base, data-page, data-hero (optional), data-content (optional)
+ * Aruba site chrome. When data-static="1", layout is already inlined — no fetch.
+ * Otherwise (legacy local preview of shells) loads partials.
  */
 (function () {
   function basePath() {
@@ -39,7 +39,23 @@
     });
   }
 
+  function bindMobileMenu() {
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function () {
+      const open = menu.classList.toggle('hidden') === false;
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', async function () {
+    if (document.body.dataset.static === '1') {
+      setActiveNav();
+      bindMobileMenu();
+      return;
+    }
+
     const hero = document.body.dataset.hero;
     const content = document.body.dataset.content;
     const trustStrip = document.body.dataset.trustStrip;
@@ -53,5 +69,6 @@
     ]);
 
     setActiveNav();
+    bindMobileMenu();
   });
 })();
